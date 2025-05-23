@@ -62,7 +62,7 @@ You can configure the appropriate model parameters and evaluation settings accor
 
 ## Acknowledgement
 
-We thank the creators of the [ScanNet](https://github.com/ScanNet/ScanNet) and [MS-COCO](https://cocodataset.org/) datasets for their open-source contributions, which provided the foundational 3D scene data and visual content for our spatial annotation pipeline. We also acknowledge the developers of the [Orient Anything]([SpatialVision/Orient-Anything: Orient Anything, ICML 2025](https://github.com/SpatialVision/Orient-Anything)) model for their valuable open-source work that supported our annotation framework development.
+We thank the creators of the [ScanNet](https://github.com/ScanNet/ScanNet) and [MS-COCO](https://cocodataset.org/) datasets for their open-source contributions, which provided the foundational 3D scene data and visual content for our spatial annotation pipeline. We also acknowledge the developers of the [Orient Anything](https://github.com/SpatialVision/Orient-Anything) model for their valuable open-source work that supported our annotation framework development.
 
 ## Citation
 
