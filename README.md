@@ -3,7 +3,6 @@
 <center> <a href="About:blank" target="_blank">     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-ViewSpatial_Bench-red?logo=arxiv" height="20" /> </a> <a href="https://huggingface.co/datasets/nyu-visionx/VSI-Bench" target="_blank">     <img alt="HF Dataset: VSI-Bench" src="https://img.shields.io/badge/%F0%9F%A4%97%20_Benchmark-ViewSpatial_Bench-ffc107?color=ffc107&logoColor=white" height="20" /> </a> <a href="https://viewspatial-bench.github.io/" target="_blank">     <img alt="Webpage" src="https://img.shields.io/badge/%F0%9F%8C%8E_Website-ViewSpatial_Bench-green.svg" height="20" /> </a> </center>
 
 <img src="docs/flat_patternmaking.png" width="100%"/>
-
 Our work presents a range of spatial localization tasks requiring reasoning from both camera-centric and human-centric perspectives, revealing the challenges visual-language models (VLMs) face in multi-viewpoint spatial understanding. Current VLMs are predominantly trained on image-text pairs from the web that lack explicit 3D spatial annotations, limiting their cross-perspective spatial reasoning capabilities. 
 
 ## ViewSpatial-Bench
