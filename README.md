@@ -1,4 +1,4 @@
-<h1><img src="docs/icon/avatar.png" width="8%"/><i>ViewSpatial-Bench</i>:Evaluating Multi-perspective Spatial Localization in Vision-Language Models
+<h1><img src="docs/icon/avatar.png" width="5%"/><i>ViewSpatial-Bench</i>:Evaluating Multi-perspective Spatial Localization in Vision-Language Models
 
 <a href="About:blank" target="_blank">
     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-ViewSpatial_Bench-red?logo=arxiv" height="20" />
@@ -30,7 +30,7 @@ We present Multi-View Spatial Model (MVSM), developed to address limitations in 
 
 Accuracy comparison across multiple VLMs on camera and human perspective spatial tasks. Our Multi-View Spatial Model (MVSM) significantly outperforms all baseline models across all task categories, demonstrating the effectiveness of our multi-perspective spatial fine-tuning approach. These results reveal fundamental limitations in perspective-based spatial reasoning capabilities among current VLMs. Even powerful proprietary models like GPT-4o (34.98%) and Gemini-2.0-Flash (32.56%) perform only marginally above random chance (26.33%), confirming our hypothesis that standard VLMs struggle with perspective-dependent spatial reasoning despite their strong performance on other vision-language tasks.
 
-## Evaluation
+## Evaluation on Your Own Model
 
 **I. With HuggingFace datasets library.**
 
