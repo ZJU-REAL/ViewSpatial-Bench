@@ -13,6 +13,7 @@
 <img src="docs/flat_patternmaking.png" width="100%"/>
 
 <br />
+<br />
 
 Our work presents a range of spatial localization tasks requiring reasoning from both camera-centric and human-centric perspectives, revealing the challenges visual-language models (VLMs) face in multi-viewpoint spatial understanding. Current VLMs are predominantly trained on image-text pairs from the web that lack explicit 3D spatial annotations, limiting their cross-perspective spatial reasoning capabilities. 
 
