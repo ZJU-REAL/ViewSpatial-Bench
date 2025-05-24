@@ -20,18 +20,18 @@ To address this gap, we introduce **ViewSpatial-Bench**, a comprehensive benchma
 
 <img src="docs/pipeline_and_case.png" width="100%"/>
 
-## Multi-View Spatial Model
+## 🤖Multi-View Spatial Model
 
 We present Multi-View Spatial Model (MVSM), developed to address limitations in perspective-dependent spatial reasoning in vision-language models. Following the ViewSpatial-Bench pipeline, we constructed a training dataset of ~43K diverse spatial relationship samples across five task categories, utilizing automated spatial annotations from ScanNet and MS-COCO data, supplemented with Spatial-MM for person-perspective tasks. Using consistent language templates and standardized directional classifications, we implemented a Multi-Perspective Fine-Tuning strategy on Qwen2.5-VL (3B) to enhance reasoning across different observational viewpoints. This approach enables MVSM to develop unified 3D spatial relationship representations that robustly support both camera and human perspective reasoning.
 
-## Results
+## 👁️‍🗨️Results
 
 <img src="docs/main_result.png" width="100%"/>
 
 Accuracy comparison across multiple VLMs on camera and human perspective spatial tasks. Our Multi-View Spatial Model (MVSM) significantly outperforms all baseline models across all task categories, demonstrating the effectiveness of our multi-perspective spatial fine-tuning approach. These results reveal fundamental limitations in perspective-based spatial reasoning capabilities among current VLMs. Even powerful proprietary models like GPT-4o (34.98%) and Gemini-2.0-Flash (32.56%) perform only marginally above random chance (26.33%), confirming our hypothesis that standard VLMs struggle with perspective-dependent spatial reasoning despite their strong performance on other vision-language tasks.
 
 
-## QuickStart 
+## ⚒️QuickStart 
 
 ```plaintext
 ViewSpatial-Bench
@@ -45,7 +45,7 @@ ViewSpatial-Bench
 
 **Note**: [CoCo dataset](https://cocodataset.org/) processing in `data_process` uses the original dataset's annotation files (download from official source). Head orientation calculations use [Orient Anything](https://github.com/SpatialVision/Orient-Anything)'s open-source code and model - place `head2body_orientation_data.py` in its root directory to run.
 
-## Evaluation on Your Own Model
+## 🌊Evaluation on Your Own Model
 
 **I. With HuggingFace datasets library.**
 
