@@ -1,0 +1,13 @@
+inference~=0.50.1
+lmdeploy~=0.7.3
+numpy~=2.2.6
+openai~=1.82.0
+opencv_python~=4.10.0.84
+Pillow~=11.2.1
+plyfile~=1.1
+pycocotools~=2.0.4
+qwen_vl_utils~=0.0.11
+Requests~=2.32.3
+torch~=2.5.1
+tqdm~=4.66.6
+transformers~=4.51.1

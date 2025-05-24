@@ -516,18 +516,18 @@ def get_3d_box(scene_name, pointcloud_folder, label_map_file):
 
 def process(scene_name, draw_picture=False):
    # Original dataset path (modifiable)
-   scan_path = f"/data/zju-49/lihongxing/datasets/scannet/data/scans/{scene_name}"
+   scan_path = f"/datasets/scannet/data/scans/{scene_name}"
 
    # Get all RGB-D images in the scene (modifiable)
-   image_folder = f"/data/zju-49/lihongxing/datasets/vsi-r1/scenes/{scene_name}/mc_frames"
+   image_folder = f"/datasets/scannet/scenes/{scene_name}/mc_frames"
 
    # Get all point cloud files and label mapping file in the scene
-   pointcloud_folder = "/data/zju-49/lidingming/datasets/scannet/scans"
-   label_map_file = "/data/zju-49/lidingming/datasets/scannet/scannetv2-labels.combined.tsv"
+   pointcloud_folder = "/datasets/scannet/scans"
+   label_map_file = "/datasets/scannet/scannetv2-labels.combined.tsv"
 
    # Output folders (modifiable)
-   output_folder = f"scannet_bench/{scene_name}/output_images"  # Store rendered images
-   visibility_folder = f"scannet_bench/{scene_name}/visibility_data"  # Store object information, coordinates, and visibility data for each image
+   output_folder = f"scannet_metadata/{scene_name}/output_images"  # Store rendered images
+   visibility_folder = f"scannet_metadata/{scene_name}/visibility_data"  # Store object information, coordinates, and visibility data for each image
 
    image_all_files = os.listdir(image_folder)
    image_chosen = [file for file in image_all_files if file.lower().endswith('.jpg')]
@@ -570,6 +570,6 @@ if __name__ == "__main__":
         draw_picture = False
         if i%100 == 0:
             draw_picture = True
-            print(f"已处理{i}个场景")
+            print(f"Processed {i} scenes")
         scene_name = scene
         process(scene_name, draw_picture)

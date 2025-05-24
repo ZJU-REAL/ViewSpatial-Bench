@@ -1,0 +1,1 @@
+Simply download and extract the source image sets `scannetv2_val` and `val2017` from [Huggingface](https://huggingface.co/datasets/lidingm/ViewSpatial-Bench) to this directory.

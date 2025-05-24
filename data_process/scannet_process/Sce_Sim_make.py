@@ -1,14 +1,7 @@
 import itertools
-import os
 import random
-
-import numpy as np
-import math
-import os, sys, argparse
+import os, sys
 import inspect
-import json
-import pdb
-import cv2
 from collections import Counter
 from frame_sampling import get_full_images
 try:
@@ -284,17 +277,17 @@ if __name__ == "__main__":
         38: "other structure", 39: "other furniture", 40: "other prop"
     }
 
-    scene_root = "scannet_process"
-    output_path = r"scannet_process/perspective_3d.json"
+    scene_root = "scannet_metadata"
+    output_path = r"scannet_metadata/perspective_3d.json"
 
     # Get all point cloud files and label mapping file in the scene
-    pointcloud_folder = "/data/zju-49/lidingming/datasets/scannet/scans"
-    label_map_file = "/data/zju-49/lidingming/datasets/scannet/scannetv2-labels.combined.tsv"
+    pointcloud_folder = "/datasets/scannet/scans"
+    label_map_file = "/datasets/scannet/scannetv2-labels.combined.tsv"
 
     qa_dataset = []
     scene_num = 0
 
-    with open('scannetv2_train.txt', 'r', encoding='utf-8') as file:
+    with open('scannetv2_val.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
     scenes = [line.strip() for line in lines]

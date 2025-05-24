@@ -54,7 +54,7 @@ def find_continuous_frames(json_data, target_labels):
 
 def get_full_images(scene_name, target_labels):
 
-    with open(f'scannet_process/{scene_name}/visibility_data/visibility_summary.json', 'r') as file:
+    with open(f'scannet_metadata/{scene_name}/visibility_data/visibility_summary.json', 'r') as file:
         data = json.load(file)
     result = find_continuous_frames(data, target_labels)
     return result

@@ -30,6 +30,21 @@ We present Multi-View Spatial Model (MVSM), developed to address limitations in 
 
 Accuracy comparison across multiple VLMs on camera and human perspective spatial tasks. Our Multi-View Spatial Model (MVSM) significantly outperforms all baseline models across all task categories, demonstrating the effectiveness of our multi-perspective spatial fine-tuning approach. These results reveal fundamental limitations in perspective-based spatial reasoning capabilities among current VLMs. Even powerful proprietary models like GPT-4o (34.98%) and Gemini-2.0-Flash (32.56%) perform only marginally above random chance (26.33%), confirming our hypothesis that standard VLMs struggle with perspective-dependent spatial reasoning despite their strong performance on other vision-language tasks.
 
+
+## QuickStart 
+
+```plaintext
+ViewSpatial-Bench
+├── data_process        # Script code for processing raw datasets to obtain metadata
+├── eval                # Used to store the raw dataset of ViewSpatial-Bench
+├── ViewSpatial-Bench	# Used to store the source images in ViewSpatial-Bench (can be downloaded from Huggingface)
+├── README.md
+├── evaluate.py         # Script code for evaluating multiple VLMs on ViewSpatial-Bench
+└── requirements.txt    # Dependencies for evaluation
+```
+
+**Note**: [CoCo dataset](https://cocodataset.org/) processing in `data_process` uses the original dataset's annotation files (download from official source). Head orientation calculations use [Orient Anything](https://github.com/SpatialVision/Orient-Anything)'s open-source code and model - place `head2body_orientation_data.py` in its root directory to run.
+
 ## Evaluation on Your Own Model
 
 **I. With HuggingFace datasets library.**
@@ -47,7 +62,7 @@ Evaluate using our open-source evaluation code available on Github.(Coming Soon)
 
 ```py
 # Clone the repository
-git clone https://github.com/lidingm/ViewSpatial-Bench.git
+git clone https://github.com/ZJU-REAL/ViewSpatial-Bench.git
 cd ViewSpatial-Bench
 
 # Install dependencies

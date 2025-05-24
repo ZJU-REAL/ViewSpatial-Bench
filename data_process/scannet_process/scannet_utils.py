@@ -185,7 +185,6 @@ def export(mesh_file, agg_file, seg_file, meta_file, label_map_file, output_file
         ])
         instance_bboxes[obj_id - 1, :] = bbox
 
-        # NYU40 ID到类别名称的映射表
         nyu40_to_category = {
             0: "unlabeled", 1: "wall", 2: "floor", 3: "cabinet", 4: "bed",
             5: "chair", 6: "sofa", 7: "table", 8: "door", 9: "window",
@@ -198,12 +197,12 @@ def export(mesh_file, agg_file, seg_file, meta_file, label_map_file, output_file
             34: "sink", 35: "lamp", 36: "bathtub", 37: "bag",
             38: "other structure", 39: "other furniture", 40: "other prop"
         }
-        # 存储到 JSON
+
         json_boxes["boxes"].append({
             "center": bbox[:3].tolist(),
             "size": bbox[3:6].tolist(),
             "label": nyu40_to_category.get(label_id),
-            "object_id": int(obj_id)  # 添加object_id用于跟踪
+            "object_id": int(obj_id)
         })
 
     if output_file:

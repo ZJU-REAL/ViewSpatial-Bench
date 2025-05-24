@@ -53,7 +53,7 @@ elif model_name == 'gpt-4o':
     client.base_url = ""  # Change to your own base_url
     print(f"Model gpt-4o series:{model_name} is running!")
 
-elif "Qwen2.5-VL" in model_name or "sft" in model_name:
+elif "Qwen2.5-VL" in model_name:
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         model_path, torch_dtype="auto", device_map="auto"
     )
@@ -137,21 +137,11 @@ def url_to_base64(url):
 
 
 def get_output(image_path, question):
-    if isinstance(image_path, str):
-        image_url = url_to_base64(image_path)
-    elif isinstance(image_path, list):
-        image_url = [url_to_base64(image) for image in image_path]
-    else:
-        image_url = ''
+    image_url = [url_to_base64(image) for image in image_path]
 
     if model_name == 'gemini-2.0-flash-001':
-        if isinstance(image_path, str):
-            content = [{"type": "image_url","image_url": {"url": image_url,}}]
-        elif isinstance(image_path, list):
-            content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
-        else:
-            print("Warning!! No pictures!!")
-            content = ''
+        content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
+
         chat_completion = client.chat.completions.create(
             model='google/gemini-2.0-flash-001',
             messages=[
@@ -170,13 +160,7 @@ def get_output(image_path, question):
         pred = chat_completion.choices[0].message.content
 
     elif model_name == 'gpt-4o':
-        if isinstance(image_path, str):
-            content = [{"type": "image_url","image_url": {"url": image_url,}}]
-        elif isinstance(image_path, list):
-            content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
-        else:
-            print("Warning!! No pictures!!")
-            content = ''
+        content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
 
         chat_completion = client.chat.completions.create(
             model="gpt-4o",
@@ -197,13 +181,8 @@ def get_output(image_path, question):
 
 
     elif "Qwen2.5-VL" in model_name:
-        if isinstance(image_path, str):
-            content = [{"type": "image", "image": image_path,"resized_height": 280,"resized_width": 420}]
-        elif isinstance(image_path, list):
-            content = [{"type": "image", "image": path,"resized_height": 280,"resized_width": 420} for path in image_path]
-        else:
-            print("Warning!! No pictures!!")
-            content = ''
+        content = [{"type": "image", "image": path,"resized_height": 280,"resized_width": 420} for path in image_path]
+
         messages = [
             {
                 "role": "user",
@@ -240,13 +219,7 @@ def get_output(image_path, question):
         pred = str(output_text[0])
 
     elif "LLaVA-NeXT" in model_name:
-        if isinstance(image_path, str):
-            content = [{"type": "image_url","image_url": {"url": image_url,}}]
-        elif isinstance(image_path, list):
-            content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
-        else:
-            print("Warning!! No pictures!!")
-            content = ''
+        content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
 
         conversation = [
             {
@@ -265,29 +238,15 @@ def get_output(image_path, question):
         pred = match.group(1)
             
     elif "InternVL2_5" in model_name:
-        if isinstance(image_path, str):
-            image = load_image(image_url)
-            response = pipe((question, image))
-            pred = response.text
-        elif isinstance(image_path, list):
-            images = [load_image(image) for image in image_url]
-            formatted_lines = ''
-            for i, item in enumerate(images, start=1):
-                formatted_lines = formatted_lines + "Image-" + str(i) + ": {IMAGE_TOKEN}\n"
-            response = pipe((f'{formatted_lines}{question}', images))
-            pred = response.text
-        else:
-            print("Warning!! No pictures!!")
-            pred = ''
+        images = [load_image(image) for image in image_url]
+        formatted_lines = ''
+        for i, item in enumerate(images, start=1):
+            formatted_lines = formatted_lines + "Image-" + str(i) + ": {IMAGE_TOKEN}\n"
+        response = pipe((f'{formatted_lines}{question}', images))
+        pred = response.text
             
     elif model_name == "llava-onevision-qwen2-7b-ov-hf":
-        if isinstance(image_path, str):
-            content = [{"type": "image_url", "image_url": {"url": image_url, }}]
-        elif isinstance(image_path, list):
-            content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
-        else:
-            print("Warning!! No pictures!!")
-            content = ''
+        content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
 
         conversation = [
             {
@@ -305,13 +264,8 @@ def get_output(image_path, question):
 
             
     elif model_name == "Llama-3.2-11B-Vision-Instruct":
-        if isinstance(image_path, str):
-            content = [{"type": "image_url", "image_url": {"url": image_url, }}]
-        elif isinstance(image_path, list):
-            content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
-        else:
-            print("Warning!! No pictures!!")
-            content = ''
+        content = [{"type": "image_url", "image_url": {"url": path}} for path in image_url]
+
         conversation = [
             {
                 "role": "user",
@@ -327,18 +281,9 @@ def get_output(image_path, question):
         pred = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
 
     elif model_name == "Kimi-VL-A3B-Instruct":
-        if isinstance(image_path, str):
-            images = Image.open(image_path)
-            images = images.resize((images.width // 4, images.height // 4), Image.Resampling.LANCZOS)
-            content = [{"type": "image", "image": images}]
-        elif isinstance(image_path, list):
-            images_ = [Image.open(path) for path in image_path]
-            images = [path.resize((path.width // 4, path.height // 4), Image.Resampling.LANCZOS) for path in images_]
-            content = [{"type": "image", "image": path} for path in images]
-        else:
-            print("Warning!! No pictures!!")
-            content = ''
-            images = ''
+        images_ = [Image.open(path) for path in image_path]
+        images = [path.resize((path.width // 4, path.height // 4), Image.Resampling.LANCZOS) for path in images_]
+        content = [{"type": "image", "image": path} for path in images]
         messages = [
             {
                 "role": "user",
@@ -356,27 +301,13 @@ def get_output(image_path, question):
         )[0]
 
     elif model_name == "InternVL3-14B":
-        if isinstance(image_path, str):
-            image = load_image(image_url)
-            response = pipe((question, image))
-            pred = response.text
-        elif isinstance(image_path, list):
-            images = [load_image(image) for image in image_url]
-            formatted_lines = ''
-            for i, item in enumerate(images, start=1):
-                formatted_lines = formatted_lines + "Image-" + str(i) + ": {IMAGE_TOKEN}\n"
-            response = pipe((f'{formatted_lines}{question}', images))
-            pred = response.text
-        else:
-            print("Warning!! No pictures!!")
-            pred = ''
+        images = [load_image(image) for image in image_url]
+        formatted_lines = ''
+        for i, item in enumerate(images, start=1):
+            formatted_lines = formatted_lines + "Image-" + str(i) + ": {IMAGE_TOKEN}\n"
+        response = pipe((f'{formatted_lines}{question}', images))
+        pred = response.text
 
-    elif model_name == "random":
-        if "C." in question:
-            choices = ["A","B","C","D"]
-        else:
-            choices = ["A", "B"]
-        pred = random.choice(choices)
     else:
         pred = ''
         
