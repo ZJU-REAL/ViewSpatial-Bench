@@ -14,7 +14,7 @@
 <img src="docs/flat_patternmaking.png" width="100%"/>
 Our work presents a range of spatial localization tasks requiring reasoning from both camera-centric and human-centric perspectives, revealing the challenges visual-language models (VLMs) face in multi-viewpoint spatial understanding. Current VLMs are predominantly trained on image-text pairs from the web that lack explicit 3D spatial annotations, limiting their cross-perspective spatial reasoning capabilities. 
 
-## ViewSpatial-Bench
+## 📖ViewSpatial-Bench
 
 To address this gap, we introduce **ViewSpatial-Bench**, a comprehensive benchmark with over 5,700 question-answer pairs across 1,000+ 3D scenes from ScanNet and MS-COCO validation sets. This benchmark evaluates VLMs' spatial localization capabilities from multiple perspectives, specifically testing both egocentric (camera) and allocentric (human subject) viewpoints across five distinct task types.The figure below shows the construction pipeline and example demonstrations of our benchmark.
 
@@ -45,7 +45,7 @@ ViewSpatial-Bench
 
 **Note**: [CoCo dataset](https://cocodataset.org/) processing in `data_process` uses the original dataset's annotation files (download from official source). Head orientation calculations use [Orient Anything](https://github.com/SpatialVision/Orient-Anything)'s open-source code and model - place `head2body_orientation_data.py` in its root directory to run.
 
-## 🌊Evaluation on Your Own Model
+## 👀Evaluation on Your Own Model
 
 **I. With HuggingFace datasets library.**
 
