@@ -1,7 +1,7 @@
 <h1><img src="docs/icon/avatar.png" width="6%"/><i>ViewSpatial-Bench</i>:Evaluating Multi-perspective Spatial Localization in Vision-Language Models</h1>
 
 <div align="center">
-    <a href="About:blank" target="_blank">
+    <a href="https://arxiv.org/abs/2505.21500" target="_blank">
         <img alt="arXiv" src="https://img.shields.io/badge/arXiv-ViewSpatial_Bench-red?logo=arxiv" height="20" />
     </a>
     <a href="https://huggingface.co/datasets/lidingm/ViewSpatial-Bench" target="_blank">
@@ -11,6 +11,7 @@
         <img alt="Webpage" src="https://img.shields.io/badge/%F0%9F%8C%8E_Website-ViewSpatial_Bench-green.svg" height="20" />
     </a>
 </div>
+
 <img src="docs/flat_patternmaking.png" width="100%"/>
 Our work presents a range of spatial localization tasks requiring reasoning from both camera-centric and human-centric perspectives, revealing the challenges visual-language models (VLMs) face in multi-viewpoint spatial understanding. Current VLMs are predominantly trained on image-text pairs from the web that lack explicit 3D spatial annotations, limiting their cross-perspective spatial reasoning capabilities. 
 
@@ -81,6 +82,14 @@ We thank the creators of the [ScanNet](https://github.com/ScanNet/ScanNet) and [
 ## Citation
 
 ```
-comming soon
+@misc{li2025viewspatialbenchevaluatingmultiperspectivespatial,
+      title={ViewSpatial-Bench: Evaluating Multi-perspective Spatial Localization in Vision-Language Models}, 
+      author={Dingming Li and Hongxing Li and Zixuan Wang and Yuchen Yan and Hang Zhang and Siqi Chen and Guiyang Hou and Shengpei Jiang and Wenqi Zhang and Yongliang Shen and Weiming Lu and Yueting Zhuang},
+      year={2025},
+      eprint={2505.21500},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2505.21500}, 
+}
 ```
 
