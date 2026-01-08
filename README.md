@@ -47,8 +47,16 @@ ViewSpatial-Bench
 **Note**: [CoCo dataset](https://cocodataset.org/) processing in `data_process` uses the original dataset's annotation files (download from official source). Head orientation calculations use [Orient Anything](https://github.com/SpatialVision/Orient-Anything)'s open-source code and model - place `head2body_orientation_data.py` in its root directory to run.
 
 ## 👀Evaluation on Your Own Model
+**I. Using EASI (Third-Party Evaluation)**
 
-**I. With HuggingFace datasets library.**
+ViewSpatial-Bench is officially supported by **EASI (Holistic Evaluation of Spatial Intelligence)**. This allows you to compare your model's performance on a broader leaderboard.🎉🎉🎉
+
+- **GitHub**: [EvolvingLMMs-Lab/EASI](https://github.com/EvolvingLMMs-Lab/EASI)
+- **Leaderboard**: [EASI Hugging Face Space](https://huggingface.co/spaces/lmms-lab-si/EASI-Leaderboard)
+- **Paper**: [Holistic Evaluation of Multimodal LLMs on Spatial Intelligence](https://arxiv.org/abs/2508.13142)
+> **A Note of Appreciation:** > We would like to express our sincere gratitude to the **EASI team** for including ViewSpatial-Bench as a supported benchmark. We share a common vision that Spatial Intelligence is a pivotal frontier for multimodal foundation models, and we are honored to collaborate in advancing research in this field.
+
+**II. With HuggingFace datasets library.**
 
 ```py
 # NOTE: pip install datasets
@@ -57,7 +65,7 @@ from datasets import load_dataset
 ds = load_dataset("lidingm/ViewSpatial-Bench")
 ```
 
-**II. Evaluation using Open-Source Code.**
+**III. Evaluation using Open-Source Code.**
 
 Evaluate using our open-source evaluation code available on Github.(Coming Soon)
 
@@ -75,9 +83,10 @@ python evaluate.py --model_path your_model_path
 
 You can configure the appropriate model parameters and evaluation settings according to the framework's requirements to obtain performance evaluation results on the ViewSpatial-Bench dataset.
 
+
 ## Acknowledgement
 
-We thank the creators of the [ScanNet](https://github.com/ScanNet/ScanNet) and [MS-COCO](https://cocodataset.org/) datasets for their open-source contributions, which provided the foundational 3D scene data and visual content for our spatial annotation pipeline. We also acknowledge the developers of the [Orient Anything](https://github.com/SpatialVision/Orient-Anything) model for their valuable open-source work that supported our annotation framework development.
+We thank the creators of the [ScanNet](https://github.com/ScanNet/ScanNet) and [MS-COCO](https://cocodataset.org/) datasets for their open-source contributions, which provided the foundational 3D scene data and visual content for our spatial annotation pipeline. We also acknowledge the developers of the [Orient Anything](https://github.com/SpatialVision/Orient-Anything) model for their valuable open-source work that supported our annotation framework development.Special thanks to the [EASI](https://github.com/EvolvingLMMs-Lab/EASI) team for their support in integrating ViewSpatial-Bench and for our shared commitment to advancing spatial intelligence research.
 
 ## Citation
 
