@@ -333,7 +333,7 @@ def evaluate_vlm(benchmark_file):
         for i, item in enumerate(tqdm(benchmark_data)):
             try:
                 image_path = item['image_path']
-                question = item["question"] + prompt_format
+                question = item["question"] + item["choices"] + prompt_format
                 correct_answer = item["answer"]
                 question_type = item["question_type"]
                 stats[question_type]["total"] += 1
